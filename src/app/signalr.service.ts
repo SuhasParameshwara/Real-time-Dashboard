@@ -10,7 +10,6 @@ import * as signalR from '@microsoft/signalr';
 
 export class SignalRService {
     private readonly _http: HttpClient;
-    private readonly _baseUrl: string = environment.azureConnection;
 
     messages: Subject<string> = new Subject();
 
@@ -19,11 +18,11 @@ export class SignalRService {
     }
 
     public getConnectionInfo() {
-        return this._http.get("https://testdemosuhas.azurewebsites.net/api/negotiate");
+        return this._http.get("<Mention azure function negotiate url>");
     }
 
     public sendMessage(request: MessageRequest) {
-        return this._http.post("https://testdemosuhas.azurewebsites.net/api/message", request);
+        return this._http.post("<Mention azure function message url>", request);
     }
 }
 
